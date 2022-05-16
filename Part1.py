@@ -1,0 +1,25 @@
+
+import numpy as np
+import numpy.ma as ma
+A = np.matrix([[4, -2, 1], [5, 0, 3], [-1, 2, 6]])
+B = np.matrix([[10, 11, 12], [13, 14, 15], [16, 17, 18]])
+print(np.dot(A, B))
+print("____________________________________")
+print(np.multiply(A, B))
+print("____________________________________")
+print((A.transpose().dot(B)).dot((np.linalg.inv(A))))
+print("____________________________________")
+Av = (np.reshape(A, -1))
+Bv = (np.reshape(B, -1))
+Cv = (np.concatenate([Av, Bv]))
+print(np.linalg.norm(Cv, axis=0))
+print("____________________________________")
+I = np.random.randint(0, 255, (255, 255))
+M=np.random.randint(0, 2, (255, 255))
+print(I)
+print("____________________________________")
+print(M)
+print("____________________________________")
+maskedArrayCheck=(ma.masked_array(I, M))
+print(maskedArrayCheck.filled(0))
+
